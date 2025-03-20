@@ -90,38 +90,6 @@ Specifically targets indicators of potential exit scams:
 - Identifying sudden token drains
 - Assessing overall rug pull risk
 
-## Testing Locally with `process()`
-
-The `process()` method allows you to test Shield AI locally before deploying:
-
-```typescript
-async function main() {
-  // Test contract security scanner
-  const contractScan = await agent.process({
-    messages: [
-      {
-        role: 'user',
-        content: 'Analyze the security of smart contract 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'
-      }
-    ]
-  })
-  console.log('Contract Security Analysis:', contractScan.choices[0].message.content)
-  
-  // Test wallet analysis
-  const walletScan = await agent.process({
-    messages: [
-      {
-        role: 'user',
-        content: 'Check if wallet 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 has any suspicious activity'
-      }
-    ]
-  })
-  console.log('Wallet Analysis:', walletScan.choices[0].message.content)
-}
-
-main()
-```
-
 ## Exposing Your Local Server with Tunneling
 
 During development, OpenServ needs to reach your Shield AI agent running on your computer. Use a tunneling tool to create a secure connection:
